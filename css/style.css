@@ -617,7 +617,6 @@ ul{
     position: relative;
     margin-right: 90px;
 }
-.carousel-2 .slider::after
 .content .images .carousel .slider::after{
     position: absolute;
     content: '';
