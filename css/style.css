@@ -91,7 +91,12 @@ ul{
 .navbar .search svg path{
     transition: .3s;
 }
-.navbar .shop svg:hover path,
+@media (min-width: 768px) {
+    .navbar .shop svg:hover {
+        fill: var(--color-primary);
+    }
+}
+
 .navbar .shop svg.active path,
 .navbar .search:hover svg path{
     stroke: var(--color-primary);
@@ -218,9 +223,6 @@ ul{
     .navbar .shop{
         padding-left: 20px;
         box-sizing: border-box;
-    }
-    .navbar .shop::after{
-        right: -4px;
     }
     .navbar .shop .carts{
         width: 320px;
