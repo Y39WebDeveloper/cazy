@@ -22,13 +22,17 @@ function showCarts(){
     shopBtn.classList.toggle('active');
 }
 
-                    /* SLIDER */
+/* SLIDER */
 
 let sliderImgs = document.querySelectorAll('.carousel .slider img');
 let sliderBullets = document.querySelectorAll('.carousel .slider-bullets li');
 let currentSlide = 1;
+let sliderImgs2 = document.querySelectorAll('.carousel-2 .slider img');
+let sliderBullets2 = document.querySelectorAll('.carousel-2 .slider-bullets li');
 let prev = document.querySelector("#prev");
 let next = document.querySelector("#next");
+let prev2 = document.querySelector(".carousel-2 .left");
+let next2 = document.querySelector(".carousel-2 .right");
 let count = document.querySelector("#count");
 
 next.addEventListener('click' ,()=>{
@@ -39,8 +43,22 @@ prev.addEventListener('click' ,()=>{
     currentSlide > 1 ? currentSlide-- :  currentSlide=sliderImgs.length;
     addActive();
 })
+next2.addEventListener('click' ,()=>{
+    currentSlide < sliderImgs.length ? currentSlide++ :  currentSlide=1;
+    addActive();
+})
+prev2.addEventListener('click' ,()=>{
+    currentSlide > 1 ? currentSlide-- :  currentSlide=sliderImgs.length;
+    addActive();
+})
 
 sliderBullets.forEach((bullet, index) => {
+    bullet.onclick = () =>{
+        currentSlide = index+1;
+        addActive();
+    };
+});
+sliderBullets2.forEach((bullet, index) => {
     bullet.onclick = () =>{
         currentSlide = index+1;
         addActive();
@@ -52,6 +70,8 @@ function addActive(){
     removeActive();
     sliderImgs[currentSlide-1].classList.add('active');
     sliderBullets[currentSlide-1].classList.add('active');
+    sliderImgs2[currentSlide-1].classList.add('active');
+    sliderBullets2[currentSlide-1].classList.add('active');
     count.innerHTML = `${currentSlide<10 ? '0'+currentSlide:currentSlide}<span>/${sliderBullets.length<10 ? '0'+sliderBullets.length:sliderBullets.length}</span>`
 }
 
@@ -60,6 +80,12 @@ function removeActive(){
         img.classList.remove('active');
     });
     sliderBullets.forEach(bullet => {
+        bullet.classList.remove('active');
+    });
+    sliderImgs2.forEach(img => {
+        img.classList.remove('active');
+    });
+    sliderBullets2.forEach(bullet => {
         bullet.classList.remove('active');
     });
 }
@@ -120,4 +146,18 @@ function addCart(){
 function shopNumber(){
     let x = document.querySelectorAll(".cart .info").length;
     document.querySelector(".shop").style.setProperty("--count", x>0? `'${x}'`:'');
+}
+
+let closeCarosel2 = document.querySelector('#closeCarosel2');
+let carosel2 = document.querySelector('.carousel-2');
+let imgCarosel = document.querySelector('.images .carousel .slider');
+
+imgCarosel.addEventListener('click', showCarosel2)
+closeCarosel2.addEventListener('click', hideCarosel2);
+
+function showCarosel2(){
+    carosel2.classList.add('active')
+}
+function hideCarosel2(){
+    carosel2.classList.remove('active')
 }
