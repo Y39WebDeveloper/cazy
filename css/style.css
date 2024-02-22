@@ -93,7 +93,7 @@ ul{
 }
 @media (min-width: 768px) {
     .navbar .shop svg:hover {
-        fill: var(--color-primary);
+        stroke: var(--color-primary);
     }
 }
 

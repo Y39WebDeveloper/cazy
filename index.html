@@ -32,7 +32,7 @@
             <path d="M21 21L16.65 16.65" stroke="#17183B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
-        <div class="shop" style="--count: '3';">
+        <div class="shop">
             <svg id="shopBtn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15 22C14.4477 22 14 21.5523 14 21C14 20.4477 14.4477 20 15 20C15.5523 20 16 20.4477 16 21C16 21.5523 15.5523 22 15 22Z" stroke="#17183B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M4 22C3.44772 22 3 21.5523 3 21C3 20.4477 3.44772 20 4 20C4.55228 20 5 20.4477 5 21C5 21.5523 4.55228 22 4 22Z" stroke="#17183B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -40,33 +40,9 @@
             </svg>
             <div class="carts" id="carts">
                 <div class="title">Cart</div>
-                <div class="cart">
+                <div class="cart" id="cart">
                     <div class="empty-cart">
                         Your cart is empty
-                    </div>
-                    <div class="info">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="./image/product-1.png" alt="">
-                            </div>
-                            <div class="txt">
-                                <p>Meryl Lounge Chair<br>$149.99 x 1 <span>$149.99</span></p>
-                            </div>
-                            <div class="delete"><img src="image/plus.svg" alt=""></div>
-                        </div>
-                        <div class="checkBtn btn"><a href="">Check out</a></div>
-                    </div>
-                    <div class="info">
-                        <div class="card">
-                            <div class="card-img">
-                                <img src="./image/product-1.png" alt="">
-                            </div>
-                            <div class="txt">
-                                <p>Meryl Lounge Chair<br>$149.99 x 1 <span>$149.99</span></p>
-                            </div>
-                            <div class="delete"><img src="image/plus.svg" alt=""></div>
-                        </div>
-                        <div class="checkBtn btn"><a href="">Check out</a></div>
                     </div>
                 </div>
             </div>
@@ -140,7 +116,7 @@
                         </svg>
                     </div>
                 </div>
-                <div class="btn">
+                <div class="btn" id="addToCartBtn">
                     Add to cart
                 </div>
             </div>
@@ -207,7 +183,7 @@
         </div>
         <div class="images">
             <div class="pagination">
-                <div class="count">
+                <div class="count" id="count">
                     01<span>/05</span>
                 </div>
                 <div class="navigation">
