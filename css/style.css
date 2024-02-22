@@ -366,9 +366,13 @@ ul{
     height: 24px;
 }
 .content .info .wish .add .icon svg{transition: .3s;}
-.content .info .wish .add:hover .icon svg,
 .content .info .wish .add.active .icon svg{
     fill: var(--color-primary);
+}
+@media (min-width: 768px) {
+    .content .info .wish .add:hover .icon svg{
+        fill: var(--color-primary);
+    }
 }
 .content .info .wish .add:active .icon svg{
     animation: wish-animation 3s infinite;
