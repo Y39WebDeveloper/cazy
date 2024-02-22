@@ -33,3 +33,46 @@ function showCarts(){
     carts.classList.toggle('active');
     shopBtn.classList.toggle('active');
 }
+
+                    /* SLIDER */
+
+let sliderImgs = document.querySelectorAll('.carousel .slider img');
+let sliderBullets = document.querySelectorAll('.carousel .slider-bullets li');
+let currentSlide = 1;
+let prev = document.querySelector("#prev");
+let next = document.querySelector("#next");
+
+next.addEventListener('click' ,()=>{
+    currentSlide < sliderImgs.length ? currentSlide++ :  currentSlide=1;
+    addActive();
+})
+prev.addEventListener('click' ,()=>{
+    currentSlide > 1 ? currentSlide-- :  currentSlide=sliderImgs.length;
+    addActive();
+})
+
+sliderBullets.forEach((bullet, index) => {
+    bullet.onclick = () =>{
+        currentSlide = index+1;
+        addActive();
+    };
+});
+
+
+function addActive(){
+    removeActive();
+    sliderImgs[currentSlide-1].classList.add('active');
+    sliderBullets[currentSlide-1].classList.add('active');
+}
+
+function removeActive(){
+    sliderImgs.forEach(img => {
+        img.classList.remove('active');
+    });
+    sliderBullets.forEach(bullet => {
+        bullet.classList.remove('active');
+    });
+}
+
+/* ADD CARD TO CARTS */
+
