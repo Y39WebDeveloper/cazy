@@ -38,7 +38,6 @@ ul{
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #D1D1D8;
-    overflow-y: hidden;
 }
 .navbar .logo{
     width: 71px;
@@ -81,7 +80,6 @@ ul{
 }
 .navbar .search,
 .navbar .search svg,
-.navbar .shop,
 .navbar .shop svg{
     width: 24px;
     cursor: pointer;
@@ -93,7 +91,8 @@ ul{
 .navbar .search svg path{
     transition: .3s;
 }
-.navbar .shop:hover svg path,
+.navbar .shop svg:hover path,
+.navbar .shop svg.active path,
 .navbar .search:hover svg path{
     stroke: var(--color-primary);
 }
@@ -102,12 +101,87 @@ ul{
     box-sizing: content-box;
     position: relative;
 }
+.navbar .shop .carts{
+    position: absolute;
+    width: 370px;
+    z-index: 5;
+    display: none;
+    top: 50px;
+    left: -280px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 11px 30px -17px var(--color-dark);
+}
+.navbar .shop .carts.active{
+    display: block;
+}
+.navbar .shop .carts .title{
+    padding: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #D1D1D8;
+}
+.navbar .shop .carts .cart{
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.navbar .shop .carts .cart .empty-cart{
+    padding: 55px;
+}
+.navbar .shop .carts .cart .info .card{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+.navbar .shop .carts .cart .info .card .card-img{
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+    border: 1px solid var(--color-primary);
+    overflow: hidden;
+}
+.navbar .shop .carts .cart .info .card .card-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.navbar .shop .carts .cart .info .card .txt{
+    color: var(--color-grey);
+    text-align: left;
+    height: 100%;
+    line-height: 1.5rem;
+}
+.navbar .shop .carts .cart .info .card .txt p span{
+    font-weight: 600;
+    color: var(--color-dark);
+}
+.navbar .shop .carts .cart .info .checkBtn{
+    padding: 16px 32px;
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    transition: .3s;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: .1px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.navbar .shop .carts .cart .info .checkBtn a{color: #fff;}
+.navbar .shop .carts .cart .info .checkBtn:hover{
+    background-color: #26615f;
+}
 .navbar .shop::before{
     content: '';
     position: absolute;
-    top: -35px;
+    top: -28px;
     left: 0;
-    height: 100px;
+    height: 81px;
     width: 1px;
     background-color: #D1D1D8;
 }
@@ -147,6 +221,10 @@ ul{
     }
     .navbar .shop::after{
         right: -4px;
+    }
+    .navbar .shop .carts{
+        width: 320px;
+        left: -250px;
     }
 }
 @media (max-width: 767px) {
@@ -192,6 +270,20 @@ ul{
     }
     .navbar .shop::before{
         display: none;
+    }
+}
+@media (max-width: 360px) {
+    .navbar .shop .carts{
+        width: 270px;
+    }
+    .navbar .shop .carts{
+        left: -200px;
+    }
+    .navbar .shop .carts .cart{
+        padding: 15px;
+    }
+    .navbar .shop .carts .cart .info .card{
+        gap: 5px;
     }
 }
 
